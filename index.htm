@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tarefas - Organizador de Tarefas</title>
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="task-manager">
+            <!-- Header simplificado -->
+            <div class="manager-header">
+                <h1 class="app-title">
+                    <span class="title-icon">✓</span>
+                    Tarefas
+                </h1>
+                <p class="app-subtitle">Organize suas tarefas por categorias</p>
+            </div>
+
+            <!-- Área de input -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="input-box" 
+                        placeholder="Digite sua tarefa..."
+                        autocomplete="off"
+                    >
+                    <select id="category-select">
+                        <option value="Pessoal">👤 Pessoal</option>
+                        <option value="Trabalho">💼 Trabalho</option>
+                        <option value="Estudos">📚 Estudos</option>
+                    </select>
+                    <button onclick="addTask()" class="add-btn">
+                        + Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabs de navegação -->
+            <div class="view-tabs">
+                <button class="tab-btn active" onclick="showView('all')">
+                    <span>📋</span> Todas as tarefas
+                </button>
+                <button class="tab-btn" onclick="showView('categories')">
+                    <span>📁</span> Ver por categorias
+                </button>
+            </div>
+
+            <!-- Lista principal de tarefas -->
+            <ul id="list-container" class="tasks-list"></ul>
+
+            <!-- Container de visualização por categorias -->
+            <div id="categories-container" class="categories-view" style="display: none;"></div>
+
+            <!-- Estatísticas -->
+            <div class="task-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total</span>
+                    <span class="stat-value" id="total-tasks">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Concluídas</span>
+                    <span class="stat-value" id="completed-tasks">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pendentes</span>
+                    <span class="stat-value" id="pending-tasks">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elementos de áudio -->
+    <audio id="add-sound" src="sounds/add.mp3"></audio>
+    <audio id="delete-sound" src="sounds/delete.mp3"></audio>
+    <audio id="complete-sound" src="sounds/complete.mp3"></audio>
+
+    <script src="main.js"></script>
+</body>
+</html>
